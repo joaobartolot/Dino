@@ -4,10 +4,17 @@ class TRex {
         this.y = y
         this.width = width
         this.height = height
+        this.yspeed = 0
     }
 
-    update() {
-        this.y += 10
+    update(gravity) {
+        this.y -= this.yspeed
+        if (this.y < canvas.height - 80) {
+            this.yspeed += gravity
+        } else if (this.y === canvas.height - 80) {
+            this.yspeed = 0
+        }
+
     }
 
     show() {
